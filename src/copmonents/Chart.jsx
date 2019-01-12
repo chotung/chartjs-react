@@ -31,15 +31,30 @@ class Chart extends Component {
     }
   }
 
+  static defaultProps = {
+    displayTitle: true,
+    displayLegend: true,
+    legendPosition: 'right'
+  }
 
  render() {
    return(
      <div className='chart'>
-       <Bar
+       <Line
          data={this.state.chartData}
         //  width={100}
         //  height={50}
-         options={{}}
+         options={{
+           title:{
+             display: this.props.displayTitle,
+             text: 'Largest Cities In Massachusetts',
+             fontSize: 25
+           },
+           legend: {
+             display: this.props.displayLegend,
+             position: this.props.legendPosition
+           }
+         }}
        />     
        </div>
    )
